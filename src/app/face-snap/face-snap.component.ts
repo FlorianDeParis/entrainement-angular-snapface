@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-face-snap',
@@ -7,6 +7,16 @@ import { Component } from '@angular/core';
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'
 })
-export class FaceSnapComponent {
+export class FaceSnapComponent implements OnInit {
+  title!: string;
+  description!: string;
+  createdAt!: Date;
+  snaps!: number;
 
+  ngOnInit(): void {
+    this.title = "La Tour Eiffel";
+    this.description = "Ceci est une photo prise devant la tour Eiffel";
+    this.createdAt = new Date();
+    this.snaps = 0;
+  }
 }
