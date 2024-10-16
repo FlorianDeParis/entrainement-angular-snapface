@@ -12,11 +12,13 @@ export class FaceSnapComponent implements OnInit {
   description!: string;
   createdAt!: Date;
   snaps!: number;
+  imageUrl!: string;
 
   ngOnInit(): void {
     this.title = "La Tour Eiffel";
     this.description = "Ceci est une photo prise devant la tour Eiffel";
     this.createdAt = new Date();
-    this.snaps = 0;
+    this.snaps = 5;
+    this.imageUrl = "https://cdn.pixabay.com/photo/2015/10/06/18/26/eiffel-tower-975004_1280.jpg";
   }
 }
