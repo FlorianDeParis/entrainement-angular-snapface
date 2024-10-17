@@ -1,6 +1,43 @@
 .face-snap-card {
-  width: 35%;
-  img {
+  position: relative;
+  background-color: rgb(255, 249, 249);
+  box-shadow: 0 0 11px 0px rgb(214, 214, 214);
+  width: 200px;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  .title{
+    margin: 0;
+  }
+  .frame{
+    position: relative;
+    overflow: hidden;
     width: 100%;
+    aspect-ratio: 16/9;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .desc{
+    margin-top: 5px;
+    font-size: 10px;
+    color: grey;
+    font-style: italic;
+  }
+
+  .footer-card{
+    font-size: 10px;
+    margin-top: 5px;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    .snaps{
+      flex-shrink: 0;
+    }
   }
 }
