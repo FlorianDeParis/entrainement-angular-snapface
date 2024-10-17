@@ -5,7 +5,10 @@
   </div>
   <p class="desc">{{ description }}</p>
   <div class="footer-card">
-    <p class="created">créé le {{ createdAt }}</p>
-    <p class="snaps">📸 {{ snaps }}</p>
+    <div class="inner">
+      <p class="created">créé le {{ createdAt }}</p>
+      <p class="snaps">📸 {{ snaps }}</p>
+    </div>
+    <button (click)="onSnap()">{{ snapButtonText }}</button>
   </div>
 </div>
