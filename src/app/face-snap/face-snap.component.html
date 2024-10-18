@@ -1,5 +1,10 @@
 <div class="face-snap-card">
   <h2 class="title">{{ faceSnap.title }}</h2>
+  @if (faceSnap.location) {
+    <p class="location"><span>📍</span> {{ faceSnap.location }}</p>
+  } @else {
+    <p class="location location--not-specified">Localisation non spécifiée</p>
+  }
   <div class="frame">
     <img class="img" [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
   </div>

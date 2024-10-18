@@ -9,6 +9,17 @@
   .title{
     margin: 0;
   }
+  .location{
+    font-size: 10px;
+    margin-bottom: 5px;
+    span{
+      font-style: normal;
+    }
+    &--not-specified{
+      font-style: italic;
+      color: grey;
+    }
+  }
   .frame{
     position: relative;
     overflow: hidden;

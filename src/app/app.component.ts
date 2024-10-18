@@ -38,5 +38,7 @@ export class AppComponent implements OnInit {
       new Date(),
       25
     );
+
+    this.myOtherSnap.setLocation('Champs Elysées');
   }
 }
