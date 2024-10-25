@@ -1,11 +1,14 @@
 .face-snap-card {
   position: relative;
   background-color: rgb(255, 249, 249);
-  box-shadow: 0 0 11px 0px rgb(214, 214, 214);
+  box-shadow: 0 0 0 1px rgb(214, 214, 214);
   width: 200px;
   font-size: 15px;
   padding: 5px;
   border-radius: 5px;
+  &.snapped{
+    box-shadow: 0 0 0 1px rgb(90, 208, 255);
+  }
   .title{
     margin: 0;
   }
@@ -53,8 +56,20 @@
       }
     }
     button{
+      outline: none;
+      border: none;
+      box-shadow: inset 0px 0px 0px 2px transparent;
+      padding: 5px 15px;
+      border-radius: 10px;
       margin-top: 5px;
       flex-grow: 1;
+      background: linear-gradient(135deg, rgba(190,49,255,1) 0%, rgba(218,49,255,1) 50%, rgba(255,101,49,1) 100%);
+      font-weight: 500;
+      color: white;
+      transition: all 0.25s ease-out;
+      &:hover{
+        box-shadow: inset 0px 0px 0px 2px rgb(255, 132, 249);
+      }
     }
   }
 }
