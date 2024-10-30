@@ -11,7 +11,7 @@
   <p class="desc">{{ faceSnap.description }}</p>
   <div class="footer-card">
     <div class="inner">
-      <p class="created">créé le {{ faceSnap.createdAt }}</p>
+      <p class="created">créé le {{ faceSnap.createdAt | date: 'd  MMMM yyyy, à HH:mm' }}</p>
       <p class="snaps" [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">📸 {{ faceSnap.snaps }}</p>
     </div>
     <button (click)="onSnap()">{{ snapButtonText }}</button>
