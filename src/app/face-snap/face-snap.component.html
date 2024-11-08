@@ -1,19 +1,27 @@
-<div class="face-snap-card" [ngClass]="{ snapped: userHasSnapped}">
-  <h2 class="title">{{ faceSnap.title | uppercase }}</h2>
-  @if (faceSnap.location) {
-    <p class="location"><span>📍</span> {{ faceSnap.location }}</p>
-  } @else {
-    <p class="location location--not-specified">Localisation non spécifiée</p>
-  }
-  <div class="frame">
-    <img class="img" [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
-  </div>
-  <p class="desc">{{ faceSnap.description }}</p>
-  <div class="footer-card">
-    <div class="inner">
-      <p class="created">créé le {{ faceSnap.createdAt | date: 'd  MMMM yyyy, à HH:mm' }}</p>
-      <p class="snaps" [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">📸 {{ faceSnap.snaps }}</p>
+<mat-card class="face-snap-card" appearance="outlined" [ngClass]="{ snapped: userHasSnapped}">
+  <mat-card-header>
+    <mat-card-title>{{ faceSnap.title }}</mat-card-title>
+    <mat-card-subtitle>
+      @if (faceSnap.location) {
+        <span>📍</span> {{ faceSnap.location }}
+      } @else {
+        <span class="not-specified">Localisation non spécifiée</span>
+      }
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image class="pic" [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+
+  <mat-card-content>
+    <p class="desc">{{ faceSnap.description }}</p>
+    <div class="footer-card">
+      <div class="inner">
+        <p class="created">créé le {{ faceSnap.createdAt | date: 'd  MMMM yyyy, à HH:mm' }}</p>
+        <p class="snaps" [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">📸 {{ faceSnap.snaps }}</p>
+      </div>
     </div>
-    <button (click)="onSnap()">{{ snapButtonText }}</button>
-  </div>
-</div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button (click)="onSnap()">{{ snapButtonText }}</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FaceSnap } from './../models/face-snap';
 import { DatePipe, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 
 @Component({
   selector: 'app-face-snap',
@@ -9,7 +11,13 @@ import { DatePipe, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
     NgStyle,
     NgClass,
     UpperCasePipe,
-    DatePipe
+    DatePipe,
+    MatButtonModule,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardContent,
+    MatCardActions
   ],
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'
