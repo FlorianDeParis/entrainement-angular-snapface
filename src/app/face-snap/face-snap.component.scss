@@ -1,56 +1,6 @@
-.face-snap-card {
-  // position: relative;
-  border: 1px solid #ccc;
-  max-width: 200px;
-  // font-size: 15px;
-  // padding: 5px;
-  // border-radius: 5px;
-  .pic{
-    max-width: 200px;
-  }
+.example-card{
+  max-width: 320px;
   &.snapped{
     border: 1px solid rgb(0, 149, 223);
-  }
-
-  .not-specified{
-    font-style: italic;
-    color: grey;
-  }
-
-
-  .desc{
-    margin-top: 5px;
-    font-size: 10px;
-    color: grey;
-    font-style: italic;
-  }
-
-  .footer-card{
-    font-size: 10px;
-    margin-top: 5px;
-    .inner{
-      display: flex;
-      gap: 15px;
-      justify-content: space-between;
-      .snaps{
-        flex-shrink: 0;
-      }
-    }
-    // button{
-    //   outline: none;
-    //   border: none;
-    //   box-shadow: inset 0px 0px 0px 2px transparent;
-    //   padding: 5px 15px;
-    //   border-radius: 10px;
-    //   margin-top: 5px;
-    //   flex-grow: 1;
-    //   background: linear-gradient(135deg, rgba(190,49,255,1) 0%, rgba(218,49,255,1) 50%, rgba(255,101,49,1) 100%);
-    //   font-weight: 500;
-    //   color: white;
-    //   transition: all 0.25s ease-out;
-    //   &:hover{
-    //     box-shadow: inset 0px 0px 0px 2px rgb(255, 132, 249);
-    //   }
-    // }
   }
 }

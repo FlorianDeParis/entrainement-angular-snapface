@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FaceSnap } from './../models/face-snap';
 import { DatePipe, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
 import { MatButtonModule } from "@angular/material/button";
-import { MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
+import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 
 @Component({
   selector: 'app-face-snap',
@@ -13,6 +13,7 @@ import { MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCard
     UpperCasePipe,
     DatePipe,
     MatButtonModule,
+    MatCard,
     MatCardHeader,
     MatCardTitle,
     MatCardSubtitle,
