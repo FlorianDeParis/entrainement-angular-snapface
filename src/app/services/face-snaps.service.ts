@@ -20,7 +20,7 @@ export class FaceSnapsService{
       "https://cdn.pixabay.com/photo/2013/04/07/21/29/arc-de-triomphe-101633_1280.jpg",
       new Date(),
       10
-    ),
+    ).withLocation('Les Champs Elysées'),
     new FaceSnap(
       "Le Louvre",
       "Photo de la pyramide du Louvre",
