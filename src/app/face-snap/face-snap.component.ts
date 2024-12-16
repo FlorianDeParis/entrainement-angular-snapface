@@ -1,6 +1,7 @@
+import { FaceSnapsService } from './../services/face-snaps.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FaceSnap } from './../models/face-snap';
-import { DatePipe, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
+import { DatePipe, NgClass, NgStyle } from '@angular/common';
 import { MatButtonModule } from "@angular/material/button";
 import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 
@@ -10,7 +11,6 @@ import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle
   imports: [
     NgStyle,
     NgClass,
-    UpperCasePipe,
     DatePipe,
     MatButtonModule,
     MatCard,
@@ -19,7 +19,7 @@ import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle
     MatCardSubtitle,
     MatCardContent,
     MatCardActions
-  ],
+],
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'
 })
@@ -27,6 +27,8 @@ export class FaceSnapComponent implements OnInit {
   @Input() faceSnap!: FaceSnap;
   userHasSnapped!: boolean;
   snapButtonText!: string;
+
+  constructor(private faceSnapsService: FaceSnapsService){}
 
   ngOnInit(): void {
     this.userHasSnapped = false;
@@ -42,14 +44,14 @@ export class FaceSnapComponent implements OnInit {
   }
 
   unSnap(){
+    this.faceSnapsService.unSnapFaceSnapById(this.faceSnap.id);
     this.snapButtonText = "snap !";
-    this.faceSnap.removeSnap();
     this.userHasSnapped = false;
   }
 
   snap(){
+    this.faceSnapsService.snapFaceSnapById(this.faceSnap.id);
     this.snapButtonText = "unsnap !";
-    this.faceSnap.addSnap();
     this.userHasSnapped = true;
   }
 }
