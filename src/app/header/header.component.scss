@@ -1,5 +1,7 @@
 header{
-  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
   background: linear-gradient(0deg, rgba(244,244,244,1) 0%, rgba(255,255,255,1) 100%);
   border-bottom: 1px solid rgb(209, 209, 209);
   text-align: center;
@@ -8,5 +10,17 @@ header{
     font-size: 30px;
     line-height: 1;
     margin: 0;
+  }
+  nav{
+    display: flex;
+    gap: 15px;
+    a{
+      font-weight: 500;
+      color: #000;
+      &.active{
+        color: #8307cf;
+        text-decoration: none;
+      }
+    }
   }
 }
