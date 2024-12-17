@@ -24,12 +24,15 @@
         font-family: Arial, Helvetica, sans-serif;
         padding-bottom: 15px;
       }
-      a{
+      .start{
+        cursor: pointer;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 700;
         text-decoration: none;
         color: #FFF;
         background: #8307cf;
+        box-shadow: none;
+        border: none;
         padding:  15px 25px;
         border-radius: 55px;
       }
