@@ -1,0 +1,6 @@
+.example-card{
+  max-width: 320px;
+  &.snapped{
+    border: 1px solid rgb(0, 149, 223);
+  }
+}

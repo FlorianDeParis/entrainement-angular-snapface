@@ -1,0 +1,25 @@
+<mat-card class="example-card" appearance="outlined" [ngClass]="{ snapped: userHasSnapped}">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ faceSnap.title }}</mat-card-title>
+    <mat-card-subtitle>
+      @if (faceSnap.location) {
+        📍 {{ faceSnap.location }}
+      } @else {
+        Localisation non spécifiée
+      }
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+  <mat-card-content>
+    <p>
+      {{ faceSnap.description }}
+    </p>
+    <p class="created">créé le {{ faceSnap.createdAt | date: 'd  MMMM yyyy, à HH:mm' }}</p>
+    <p class="snaps" [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">📸 {{ faceSnap.snaps }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button (click)="onSnap()">{{ snapButtonText }}</button>
+    <button mat-button routerLink="/facesnaps">Retour</button>
+  </mat-card-actions>
+</mat-card>
