@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { RouterOutlet } from '@angular/router';
-import { interval } from 'rxjs';
+import { interval, Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    AsyncPipe,
     HeaderComponent,
     RouterOutlet
   ],
@@ -14,8 +16,11 @@ import { interval } from 'rxjs';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
+
+  interval$!: Observable<number>;
+
   ngOnInit(): void {
-    const interval$ = interval(1000);
-    setTimeout(() => interval$.subscribe(value => console.log(value)), 3000);
+    this.interval$ = interval(1000);
+
   }
 }
