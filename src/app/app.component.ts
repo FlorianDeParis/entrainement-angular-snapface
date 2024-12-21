@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { RouterOutlet } from '@angular/router';
-import { interval, Observable } from 'rxjs';
+import { filter, interval, map, Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -17,10 +17,15 @@ import { AsyncPipe } from '@angular/common';
 })
 export class AppComponent implements OnInit{
 
-  interval$!: Observable<number>;
+  interval$!: Observable<string>;
 
   ngOnInit(): void {
-    this.interval$ = interval(1000);
-
+    this.interval$ = interval(1000).pipe(
+      filter(value => value % 3 === 0),
+      map(value => value % 2 === 0 ?
+        `Je suis ${value} et je suis pair`:
+        `Je suis ${value} et je suis impair`
+      )
+    );
   }
 }
