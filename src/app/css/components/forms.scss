@@ -1,0 +1,10 @@
+input{
+  &[type="text"],
+  &[type="password"],
+  &[type="email"]{
+    box-shadow: none;
+    border: none;
+    padding:  15px 25px;
+    border-radius: 55px;
+  }
+}
