@@ -13,7 +13,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './landing-page.component.scss'
 })
 export class LandingPageComponent implements OnInit {
-
+  userName: string = '';
   userEmail: string = 'lorem.ipsum@sitename.com';
 
   constructor(private router: Router){}
