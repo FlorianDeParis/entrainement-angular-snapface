@@ -1,0 +1,20 @@
+#routes-list{
+  height: calc(100vh - 62px);
+  background-color: rgba(244,244,244,1);
+  h1{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    line-height: 1;
+    margin: 0 0 30px 0;
+  }
+  nav{
+    padding: 30px;
+    ul, li{
+      margin: 0;
+    }
+    p{
+      font-style: italic;
+    }
+  }
+}

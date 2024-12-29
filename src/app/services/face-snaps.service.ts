@@ -1,6 +1,7 @@
 import { SnapType } from './../models/snap-type.type';
 import { FaceSnap } from './../models/face-snap';
 import { Injectable } from "@angular/core";
+import { getRandomIntInclusive } from '../utils/random';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +47,13 @@ export class FaceSnapsService{
   snapFaceSnapById(faceSnapId: string, SnapType: SnapType): void{
     const faceSnap: FaceSnap = this.getFaceSnapById(faceSnapId);
     faceSnap.snap(SnapType);
+  }
+
+  getRandomFaceSnapNumber(): number {
+    return getRandomIntInclusive(0, this.faceSnaps.length);
+  }
+
+  getRandomFaceSnap(): FaceSnap {
+    return this.faceSnaps[this.getRandomFaceSnapNumber()]
   }
 }

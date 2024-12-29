@@ -1,0 +1,15 @@
+<section id="routes-list">
+  <nav>
+    <h1>Naviguer vers les différentes routes du projet</h1>
+    <ul>
+      @for (myRoute of myRoutes; track myRoute.id) {
+        <li>
+          <a [routerLink]="myRoute.path">{{myRoute.name}}</a>
+            @if (myRoute.desc) {
+              <p>{{myRoute.desc}}</p>
+            }
+        </li>
+      }
+    </ul>
+  </nav>
+</section>
