@@ -5,12 +5,6 @@
       <h1>Snapface</h1>
       <p>Restez en contact avec tout vos amis</p>
       <button class="btn start" (click)="onContinue()">Entrer</button>
-      <form #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
-        <label for="emailInput">Inscrivez-vous pour recevoir votre newsletter&nbsp;!</label>
-        <input type="text" placeholder="Votre nom" id="nameInput" [(ngModel)]="userName" name="userName">
-        <input type="email" placeholder="Votre email" id="emailInput" [(ngModel)]="userEmail" name="userEmail">
-        <button class="btn" type="submit">OK</button>
-      </form>
     </div>
   </div>
 </section>
