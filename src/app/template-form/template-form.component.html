@@ -1,0 +1,11 @@
+<section id="templateForm">
+  <div class="container">
+    <h1>Template form<br>example</h1>
+    <form #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
+      <label for="emailInput">Inscrivez-vous pour recevoir votre newsletter&nbsp;!</label>
+      <input type="text" placeholder="Votre nom" id="nameInput" [(ngModel)]="userName" name="userName">
+      <input type="email" placeholder="Votre email" id="emailInput" [(ngModel)]="userEmail" name="userEmail">
+      <button class="btn" type="submit">OK</button>
+    </form>
+  </div>
+</section>
