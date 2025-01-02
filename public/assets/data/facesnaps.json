@@ -1,0 +1,72 @@
+[
+  {
+    "titre": "Le Louvre sous la neige",
+    "description": "Le musée du Louvre est encore plus magnifique sous la neige, offrant un contraste spectaculaire avec sa pyramide de verre.",
+    "url_photo": "https://images.unsplash.com/photo-1548427113-abf8c83bceda?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 1200,
+    "date_publication": "2024-12-21"
+  },
+  {
+    "titre": "La Seine au coucher du soleil",
+    "description": "Un coucher du soleil magnifique vu depuis les quais de la Seine, avec la Tour Eiffel en arrière-plan.",
+    "url_photo": "https://images.unsplash.com/photo-1636211255016-b0a8c94a977a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 1500,
+    "date_publication": "2024-11-22"
+  },
+  {
+    "titre": "Les Champs-Élysées illuminés",
+    "description": "Les Champs-Élysées sont magnifiquement décorées pour les fêtes, avec des lumières scintillantes qui enchantent les passants.",
+    "url_photo": "https://images.unsplash.com/photo-1548093275-b47dd9f08e5e?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 1800,
+    "date_publication": "2024-12-16"
+  },
+  {
+    "titre": "Montmartre en hiver",
+    "description": "Les rues de Montmartre sont charmantes en hiver, avec de petites cafés et des artistes dessinant des portraits sur la place du Tertre.",
+    "url_photo": "https://images.unsplash.com/photo-1619912730131-7e1c399eb0bf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 1100,
+    "date_publication": "2024-11-30"
+  },
+  {
+    "titre": "La Tour Eiffel vue du Trocadéro",
+    "description": "Une vue imprenable sur la Tour Eiffel depuis les jardins du Trocadéro, avec la ville de Paris en arrière-plan.",
+    "url_photo": "https://images.unsplash.com/photo-1584482018977-a09bff9a33ad?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 2000,
+    "date_publication": "2024-12-11"
+  },
+  {
+    "titre": "Le marché de Noël de Notre-Dame",
+    "description": "Le marché de Noël près de la cathédrale Notre-Dame offre une atmosphère féerique avec ses chalets en bois et ses décorations lumineuses.",
+    "url_photo": "https://plus.unsplash.com/premium_photo-1701454740269-633e9e0a3912?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 950,
+    "date_publication": "2024-12-02"
+  },
+  {
+    "titre": "Le jardin des Tuileries au printemps",
+    "description": "Le jardin des Tuileries est le lieu parfait pour une promenade printanière, avec ses fontaines et ses sculptures.",
+    "url_photo": "https://plus.unsplash.com/premium_photo-1694475105437-5e97dcc7e520?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 1300,
+    "date_publication": "2024-05-15"
+  },
+  {
+    "titre": "La vue depuis le Sacré-Cœur",
+    "description": "Une vue spectaculaire sur tout Paris depuis le sommet de la basilique du Sacré-Cœur, à Montmartre.",
+    "url_photo": "https://images.unsplash.com/photo-1622664291095-80ab3de96b7a?q=80&w=2139&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 1600,
+    "date_publication": "2024-12-04"
+  },
+  {
+    "titre": "Paris la nuit depuis la Seine",
+    "description": "Un bateau-mouche navigue sur la Seine, avec les lumières de la ville qui se reflètent sur l'eau et créent une ambiance magique.",
+    "url_photo": "https://images.unsplash.com/photo-1636554610979-d769777c7863?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 1400,
+    "date_publication": "2024-12-03"
+  },
+  {
+    "titre": "Les jardins du Luxembourg en automne",
+    "description": "Les couleurs automnales envahissent les jardins du Luxembourg, avec des feuilles rouges et dorées qui tombent lentement des arbres.",
+    "url_photo": "https://plus.unsplash.com/premium_photo-1697730379810-6f3918f7c463?q=80&w=2041&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "likes": 1100,
+    "date_publication": "2024-10-20"
+  }
+]

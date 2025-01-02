@@ -2,6 +2,7 @@ import { SnapType } from './../models/snap-type.type';
 import { FaceSnap } from './../models/face-snap';
 import { Injectable } from "@angular/core";
 import { getRandomIntInclusive } from '../utils/random';
+import FaceSnapJson from './../../../public/assets/data/facesnaps.json';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,33 @@ export class FaceSnapsService{
       25
     ),
   ];
+  private faceSnapsByJson: any;
+
+  constructor(){
+    // console.log(FaceSnapJson);
+    this.parseFaceSnapsFromJson();
+  }
+
+  parseFaceSnapsFromJson(): void {
+    FaceSnapJson.map(
+      snap => {
+        console.log(snap);
+        this.faceSnaps.push(
+          new FaceSnap(
+            snap.titre,
+            snap.description,
+            snap.url_photo,
+            new Date(snap.date_publication),
+            snap.likes
+          )
+        )
+      }
+    )
+  }
+
+  getFaceSnapsbyJson(): string {
+    return this.faceSnapsByJson;
+  }
 
   getFaceSnaps(): FaceSnap[] {
     return [...this.faceSnaps];
