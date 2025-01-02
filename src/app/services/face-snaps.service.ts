@@ -50,7 +50,7 @@ export class FaceSnapsService{
   }
 
   getRandomFaceSnapNumber(): number {
-    return getRandomIntInclusive(0, this.faceSnaps.length);
+    return getRandomIntInclusive(0, (this.faceSnaps.length-1));
   }
 
   getRandomFaceSnap(): FaceSnap {
