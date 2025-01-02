@@ -1,6 +1,27 @@
-.example-card{
-  max-width: 320px;
+.faceSnapCard{
+  position: relative;
+  overflow: hidden;
+  width: 320px;
+  --mdc-outlined-card-container-color: #fcfcfc;
   &.snapped{
     border: 1px solid rgb(0, 149, 223);
+  }
+  .location{
+    margin: 5px 0 10px 0;
+  }
+  .pic{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background-color: #000;
+  }
+  .actions{
+    --mdc-text-button-label-text-color: #FFF;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    background-color: rgba(0,0,0,0.5);
   }
 }
