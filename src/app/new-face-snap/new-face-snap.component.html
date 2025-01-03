@@ -21,12 +21,12 @@
           <input id="location" type="text" formControlName="location">
         </div>
         <div class="action-buttons">
-          <button class="btn" type="submit" (click)="onSubmitForm()">Enregistrer</button>
+          <button class="btn" type="submit" (click)="onSubmitForm()" [disabled]="snapForm.invalid">Enregistrer</button>
         </div>
       </form>
     </div>
     <div class="snapPreview">
-      <div class="faceSnapCard" *ngIf="faceSnapPreview$ | async as facesnap">
+      <div *ngIf="faceSnapPreview$ | async as facesnap">
         <mat-card class="faceSnapCard" appearance="outlined">
           <mat-card-header>
             <mat-card-title>{{ facesnap.title }}</mat-card-title>
