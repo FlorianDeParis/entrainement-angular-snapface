@@ -2,11 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { map, Observable } from 'rxjs';
 import { FaceSnap } from '../models/face-snap';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from "@angular/material/button";
+import { MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 
 @Component({
   selector: 'app-new-face-snap',
   standalone: true,
-  imports: [
+  imports: [    MatButtonModule,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardActions,
+    CommonModule,
     ReactiveFormsModule
   ],
   templateUrl: './new-face-snap.component.html',
@@ -17,9 +26,7 @@ export class NewFaceSnapComponent implements OnInit{
   snapForm!: FormGroup;
   faceSnapPreview$!: Observable<FaceSnap>;
 
-  constructor(private formBuilder: FormBuilder){
-
-  }
+  constructor(private formBuilder: FormBuilder){}
 
   ngOnInit(): void {
     this.snapForm = this.formBuilder.group({

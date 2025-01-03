@@ -1,29 +1,40 @@
-.form-card {
-  box-sizing: border-box;
-  width: 50%;
-  margin: 20px auto;
-  padding: 10px 30px;
-  box-shadow: lightgray 4px 4px 20px;
+@use '../face-snap/face-snap.component.scss' as *;
+
+#newFaceSnap{
+  padding-top: 30px;
+  .container{
+    border: 1px solid #b3b3b3;
+    border-radius: 30px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin: 10px auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  input, textarea {
+    border: solid 1px #000;
+    width: 50%;
+  }
+
+  .action-buttons {
+    width: 100%;
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+  }
 }
 
-.form-group {
-  margin: 10px auto;
-  width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-input, textarea {
-  border: solid 1px #000;
-  width: 50%;
-}
-
-.action-buttons {
-  width: 100%;
-}
-
-button {
-  display: block;
-  margin: 20px auto;
-}
