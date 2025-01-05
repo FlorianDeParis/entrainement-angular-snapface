@@ -1,4 +1,4 @@
-import { SnapFormValueType, SnapType } from './../models/snap-type.type';
+import { SnapType } from './../models/snap-type.type';
 import { FaceSnap } from './../models/face-snap';
 import { Injectable } from "@angular/core";
 import { getRandomIntInclusive } from '../utils/random';
@@ -57,19 +57,23 @@ export class FaceSnapsService{
     return this.faceSnaps[this.getRandomFaceSnapNumber()]
   }
 
-  addFaceSnap(formValue: SnapFormValueType) {
-    // const faceSnap: FaceSnap = {
-    //   ...formValue,
-    //   snaps: 0,
-    //   createdAt: new Date(),
-    //   id: this.faceSnaps[this.faceSnaps.length - 1].id + 1,
-    // };
+  addFaceSnap(formValue: {
+    title: string,
+    description: string,
+    imageUrl: string,
+    location?: string
+  }) {
+    const { title, description, imageUrl, location } = formValue;
     const faceSnap = new FaceSnap(
-      ...formValue,
-      0,
+      title,
+      description,
+      imageUrl,
       new Date(),
-      this.faceSnaps[this.faceSnaps.length - 1].id + 1,
-    )
+      0
+    );
+    if(location){
+      faceSnap.withLocation(location);
+    }
     this.faceSnaps.push(faceSnap);
   }
 }

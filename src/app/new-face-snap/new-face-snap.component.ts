@@ -46,14 +46,15 @@ export class NewFaceSnapComponent implements OnInit{
     }, {
       updateOn: 'blur'
     });
-    this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
-      map(formValue => ({
-        ...formValue,
-        createdDate: new Date(),
-        id: 0,
-        snaps: 0
-      }))
-    );
+    // this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
+    //   map(formValue => ({
+    //     ...formValue,
+    //     // createdAt: new Date(),
+    //     // id: 0,
+    //     // snaps: 0
+    //   }))
+    // );
+    this.faceSnapPreview$ = this.snapForm.valueChanges;
   }
 
   onSubmitForm(): void{
