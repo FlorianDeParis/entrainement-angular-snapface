@@ -3,6 +3,7 @@ export class FaceSnap {
 
   location?: string;
   id: string;
+  alreadySnapped: boolean = false;
 
   constructor(
     public title: string,
@@ -26,8 +27,10 @@ export class FaceSnap {
   snap(SnapType: SnapType){
     if(SnapType === 'snap'){
       this.addSnap();
+      this.alreadySnapped = true;
     } else if (SnapType === 'unsnap') {
       this.removeSnap();
+      this.alreadySnapped = false;
     }
   }
 

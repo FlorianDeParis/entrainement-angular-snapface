@@ -36,11 +36,11 @@ export class SingleFaceSnapComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.prepareInterface();
     this.getFaceSnap();
+    this.prepareInterface();
   }
 
-  onSnap(){
+  onSnap(): void {
     if(this.userHasSnapped){
       this.unSnap();
     } else{
@@ -48,25 +48,37 @@ export class SingleFaceSnapComponent implements OnInit {
     }
   }
 
-  unSnap(){
+  unSnap(): void {
     this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'unsnap');
-    this.snapButtonText = "snap !";
-    this.userHasSnapped = false;
+    this.setSnapButtonState('unsnap');
   }
 
-  snap(){
+  snap(): void {
     this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap');
-    this.snapButtonText = "unsnap !";
-    this.userHasSnapped = true;
+    this.setSnapButtonState('snap');
   }
 
-  private prepareInterface(){
+  private setSnapButtonState(state: ('snap' | 'unsnap') ): void {
+    if(state === 'snap'){
+      this.userHasSnapped = true;
+      this.snapButtonText = "unsnap !";
+      return;
+    }
     this.userHasSnapped = false;
     this.snapButtonText = "snap !";
   }
 
-  private getFaceSnap(){
+  private prepareInterface(): void {
+    if(this.userHasSnapped){
+      this.snapButtonText = "unsnap !";
+      return;
+    }
+    this.snapButtonText = "snap !";
+  }
+
+  private getFaceSnap(): void {
     const faceSnapId = this.route.snapshot.params['id'];
     this.faceSnap = this.faceSnapsService.getFaceSnapById(faceSnapId);
+    this.userHasSnapped = this.faceSnap.alreadySnapped;
   }
 }
