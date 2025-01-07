@@ -19,7 +19,7 @@
     <p class="snaps" [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">📸 {{ faceSnap.snaps }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-flat-button (click)="onSnap()">{{ snapButtonText }}</button>
+    <button mat-flat-button (click)="onSnap(faceSnap.id)">{{ snapButtonText }}</button>
     <button mat-button routerLink="/facesnaps">Retour</button>
   </mat-card-actions>
 </mat-card>

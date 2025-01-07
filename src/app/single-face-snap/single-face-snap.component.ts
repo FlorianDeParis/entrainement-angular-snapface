@@ -45,21 +45,21 @@ export class SingleFaceSnapComponent implements OnInit {
     this.prepareInterface();
   }
 
-  onSnap(): void {
+  onSnap(faceSnapId: string): void {
     if(this.userHasSnapped){
-      this.unSnap();
+      this.unSnap(faceSnapId);
     } else{
-      this.snap();
+      this.snap(faceSnapId);
     }
   }
 
-  unSnap(): void {
-    // this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'unsnap'); // Snap request over http will be added later
+  unSnap(faceSnapId: string): void {
+    this.faceSnapsService.snapFaceSnapById(faceSnapId, 'unsnap');
     this.setSnapButtonState('unsnap');
   }
 
-  snap(): void {
-    // this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap'); // Snap request over http will be added later
+  snap(faceSnapId: string): void {
+    this.faceSnapsService.snapFaceSnapById(faceSnapId, 'snap');
     this.setSnapButtonState('snap');
   }
 

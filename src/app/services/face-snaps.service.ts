@@ -3,7 +3,7 @@ import { FaceSnap } from './../models/face-snap';
 import { Component, Injectable } from "@angular/core";
 import { getRandomIntInclusive } from '../utils/random';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -58,9 +58,14 @@ export class FaceSnapsService{
     return this.http.get<FaceSnap>(`http://localhost:3000/facesnaps/${faceSnapId}`);
   }
 
-  snapFaceSnapById(faceSnapId: string, SnapType: SnapType): void{
-    // const faceSnap: FaceSnap = this.getFaceSnapById(faceSnapId);
-    //faceSnap.snap(SnapType);
+  snapFaceSnapById(faceSnapId: string, snapType: SnapType): Observable<FaceSnap>{
+    return this.fetchFaceSnapById(faceSnapId).pipe(
+      map(faceSnap => ({
+        ...faceSnap,
+        snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1)
+      })),
+      switchMap(updatedFaceSnap => this.http.put<FaceSnap>(`http://localhost:3000/facesnaps/${faceSnapId}`,updatedFaceSnap))
+    );
   }
 
   getRandomFaceSnapNumber(): number {
