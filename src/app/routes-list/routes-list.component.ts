@@ -18,7 +18,10 @@ export class RoutesListComponent implements OnInit {
   randomSnapId!: string;
 
   constructor(private FaceSnapsService: FaceSnapsService){
-    this.randomSnapId = this.FaceSnapsService.getRandomFaceSnap().id.toString();
+    // this.randomSnapId = this.FaceSnapsService.getRandomFaceSnap().id.toString();
+    const random$ = this.FaceSnapsService.getRandomFaceSnap();
+    console.log('random$');
+    console.log(random$);
   }
 
   ngOnInit(): void {

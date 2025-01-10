@@ -3,7 +3,7 @@ import { FaceSnap } from './../models/face-snap';
 import { Component, Injectable } from "@angular/core";
 import { getRandomIntInclusive } from '../utils/random';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, switchMap } from 'rxjs';
+import { filter, map, Observable, switchMap, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,13 +33,39 @@ export class FaceSnapsService{
     );
   }
 
-  getRandomFaceSnapNumber(): number {
-    return getRandomIntInclusive(0, (this.faceSnaps.length-1));
+  getRandomFaceSnap() {
+  //  return this.getFaceSnaps().subscribe(
+  //   faceSnap => {
+  //     console.log(faceSnap.length)
+  //     const rand = getRandomIntInclusive(0, faceSnap.length - 1);
+  //     faceSnap = faceSnap[rand];
+  //   }
+  //  );
+
+    return this.getFaceSnaps().pipe(
+      map(faceSnaps => {
+        const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
+        console.log(rand)
+        faceSnaps.filter((faceSnap, id) => {
+          console.log(faceSnap, id)
+          if(id === rand){
+            console.log("yes")
+            return faceSnap;
+          }
+          console.log("nope")
+          return;
+        })
+      })
+    ).subscribe();
   }
 
-  getRandomFaceSnap(): FaceSnap {
-    return this.faceSnaps[this.getRandomFaceSnapNumber()]
+  getRandomFaceSnapNumber(maxLength: number): number {
+    return getRandomIntInclusive(0, maxLength);
   }
+
+  // getRandomFaceSnap(): FaceSnap {
+  //   return this.faceSnaps[this.getRandomFaceSnapNumber()]
+  // }
 
   addFaceSnap(formValue: {
     title: string,
