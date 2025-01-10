@@ -13,53 +13,18 @@ export class FaceSnapsService{
 
   constructor(private http: HttpClient){}
 
-  // private faceSnaps: FaceSnap[] = [
-  //   new FaceSnap(
-  //     "La Tour Eiffel",
-  //     "Ceci est une photo prise devant la tour Eiffel",
-  //     "https://cdn.pixabay.com/photo/2015/10/06/18/26/eiffel-tower-975004_1280.jpg",
-  //     new Date(),
-  //     5
-  //   ),
-  //   new FaceSnap(
-  //     "L'Arc de Triomphe",
-  //     "Photo des Champs Elysées donnant lieu sur l'Arc de Triomphe de Paris",
-  //     "https://cdn.pixabay.com/photo/2013/04/07/21/29/arc-de-triomphe-101633_1280.jpg",
-  //     new Date(),
-  //     10
-  //   ).withLocation('Les Champs Elysées'),
-  //   new FaceSnap(
-  //     "Le Louvre",
-  //     "Photo de la pyramide du Louvre",
-  //     "https://cdn.pixabay.com/photo/2020/11/22/19/19/louvre-5767708_1280.jpg",
-  //     new Date(),
-  //     25
-  //   ),
-  // ];
   private faceSnaps: FaceSnap[] = [];
 
-  getFaceSnaps(): FaceSnap[] {
-    return [...this.faceSnaps];
-  }
-
-  fetchFaceSnaps(): Observable<FaceSnap[]>{
+  getFaceSnaps(): Observable<FaceSnap[]>{
     return this.http.get<FaceSnap[]>('http://localhost:3000/facesnaps');
   }
 
-  getFaceSnapById(faceSnapId: string): FaceSnap {
-    const foundFaceSnap: FaceSnap | undefined = this.faceSnaps.find(faceSnap => faceSnap.id == faceSnapId);
-    if(!foundFaceSnap){
-      throw new Error('FaceSnap not found.');
-    }
-    return foundFaceSnap;
-  }
-
-  fetchFaceSnapById(faceSnapId: string): Observable<FaceSnap> {
+  getFaceSnapById(faceSnapId: string): Observable<FaceSnap> {
     return this.http.get<FaceSnap>(`http://localhost:3000/facesnaps/${faceSnapId}`);
   }
 
   snapFaceSnapById(faceSnapId: string, snapType: SnapType): Observable<FaceSnap>{
-    return this.fetchFaceSnapById(faceSnapId).pipe(
+    return this.getFaceSnapById(faceSnapId).pipe(
       map(faceSnap => ({
         ...faceSnap,
         snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1)

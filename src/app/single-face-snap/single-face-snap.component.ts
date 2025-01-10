@@ -83,8 +83,7 @@ export class SingleFaceSnapComponent implements OnInit {
 
   private getFaceSnap(): void {
     const faceSnapId = this.route.snapshot.params['id'];
-    // this.faceSnap = this.faceSnapsService.getFaceSnapById(faceSnapId);
-    this.faceSnap$ = this.faceSnapsService.fetchFaceSnapById(faceSnapId);
+    this.faceSnap$ = this.faceSnapsService.getFaceSnapById(faceSnapId);
     // this.userHasSnapped = this.faceSnap$.alreadySnapped;
   }
 }

@@ -31,7 +31,7 @@ export class FaceSnapListComponent implements OnInit, OnDestroy{
     //   tap(value => console.log(value))
     // ).subscribe();
 
-    this.facesnaps$ = this.FaceSnapsService.fetchFaceSnaps();
+    this.facesnaps$ = this.FaceSnapsService.getFaceSnaps();
   }
 
   ngOnDestroy(): void {
