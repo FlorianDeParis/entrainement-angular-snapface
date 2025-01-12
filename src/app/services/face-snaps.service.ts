@@ -33,21 +33,18 @@ export class FaceSnapsService{
     );
   }
 
-  // getRandomFaceSnap(): Observable<FaceSnap> {
-  //   return this.getFaceSnaps().pipe(
-  //     map(
-  //       (faceSnaps, index) => {
-  //         const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
-  //         const FSRand = faceSnaps[rand];
-  //         console.log(faceSnaps);
-  //         console.log(rand);
-  //         console.log(FSRand);
-  //         console.log(index);
-  //         faceSnaps = [FSRand];
-  //       }
-  //     )
-  //   );
-  // }
+  getRandomFaceSnap$(): Observable<FaceSnap> {
+    return this.getFaceSnaps().pipe(
+      switchMap(faceSnaps => {
+        const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
+        const FSRand = faceSnaps[rand];
+        console.log(faceSnaps);
+        console.log(rand);
+        console.log(FSRand);
+        return [FSRand];
+      })
+    );
+  }
 
   getRandomFaceSnapNumber(maxLength: number): number {
     return getRandomIntInclusive(0, maxLength);

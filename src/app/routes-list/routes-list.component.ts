@@ -3,7 +3,7 @@ import { customRoute } from '../models/routes-list.type';
 import { FaceSnapsService } from './../services/face-snaps.service';
 import { RouterLink } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-routes-list',
@@ -17,14 +17,14 @@ import { Observable } from 'rxjs';
 
 export class RoutesListComponent implements OnInit {
   myRoutes!: customRoute[];
+  FaceSnap$!: Observable<FaceSnap[]>;
   randomSnap$!: Observable<FaceSnap>;
-  // randomSnapId!: string;
 
   constructor(private FaceSnapsService: FaceSnapsService){
     // this.randomSnapId = this.FaceSnapsService.getRandomFaceSnap().id.toString();
-    const random$ = this.FaceSnapsService.getRandomFaceSnap();
+    this.randomSnap$ = this.FaceSnapsService.getRandomFaceSnap$();
     console.log('random$');
-    console.log(random$);
+    this.FaceSnap$ = this.FaceSnapsService.getFaceSnaps();
   }
 
   ngOnInit(): void {
@@ -37,5 +37,15 @@ export class RoutesListComponent implements OnInit {
       { id:"templateform", name:"Exemple d'un 'template form'", path:"/template-form" },
       { id:"routeslist", name:"Index des routes disponibles", path:"/routes-list" },
     ];
+
+
+    this.randomSnap$.pipe(
+      tap(
+        data => {
+          console.log(data)
+
+        }
+      )
+    ).subscribe()
   }
 }
