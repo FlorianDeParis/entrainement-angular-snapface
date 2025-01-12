@@ -11,9 +11,10 @@ import { filter, map, Observable, switchMap, tap } from 'rxjs';
 
 export class FaceSnapsService{
 
-  constructor(private http: HttpClient){}
-
   private faceSnaps: FaceSnap[] = [];
+  // private randomFaceSnap$: Observable<FaceSnap>;
+
+  constructor(private http: HttpClient){}
 
   getFaceSnaps(): Observable<FaceSnap[]>{
     return this.http.get<FaceSnap[]>('http://localhost:3000/facesnaps');
@@ -33,7 +34,7 @@ export class FaceSnapsService{
     );
   }
 
-  getRandomFaceSnap() {
+  getRandomFaceSnap(): Observable<FaceSnap> {
   //  return this.getFaceSnaps().subscribe(
   //   faceSnap => {
   //     console.log(faceSnap.length)
@@ -42,20 +43,33 @@ export class FaceSnapsService{
   //   }
   //  );
 
+    // return this.getFaceSnaps().pipe(
+    //   map(faceSnaps => {
+    //     const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
+    //     console.log(rand)
+    //     faceSnaps.filter((faceSnap, id) => {
+    //       console.log(faceSnap, id)
+    //       if(id === rand){
+    //         console.log("yes")
+    //         return faceSnap;
+    //       }
+    //       console.log("nope")
+    //       return;
+    //     })
+    //   })
+    // ).subscribe();
+
     return this.getFaceSnaps().pipe(
-      map(faceSnaps => {
-        const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
-        console.log(rand)
-        faceSnaps.filter((faceSnap, id) => {
-          console.log(faceSnap, id)
-          if(id === rand){
-            console.log("yes")
-            return faceSnap;
-          }
-          console.log("nope")
-          return;
-        })
-      })
+      map(
+        faceSnaps => {
+          const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
+          const FSRand = faceSnaps[rand];
+          console.log(faceSnaps);
+          console.log(rand);
+          console.log(FSRand);
+          faceSnaps = [FSRand];
+        }
+      )
     ).subscribe();
   }
 
