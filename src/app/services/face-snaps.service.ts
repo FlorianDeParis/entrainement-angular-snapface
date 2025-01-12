@@ -12,7 +12,6 @@ import { filter, map, Observable, switchMap, tap } from 'rxjs';
 export class FaceSnapsService{
 
   private faceSnaps: FaceSnap[] = [];
-  // private randomFaceSnap$: Observable<FaceSnap>;
 
   constructor(private http: HttpClient){}
 
@@ -34,52 +33,25 @@ export class FaceSnapsService{
     );
   }
 
-  getRandomFaceSnap(): Observable<FaceSnap> {
-  //  return this.getFaceSnaps().subscribe(
-  //   faceSnap => {
-  //     console.log(faceSnap.length)
-  //     const rand = getRandomIntInclusive(0, faceSnap.length - 1);
-  //     faceSnap = faceSnap[rand];
-  //   }
-  //  );
-
-    // return this.getFaceSnaps().pipe(
-    //   map(faceSnaps => {
-    //     const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
-    //     console.log(rand)
-    //     faceSnaps.filter((faceSnap, id) => {
-    //       console.log(faceSnap, id)
-    //       if(id === rand){
-    //         console.log("yes")
-    //         return faceSnap;
-    //       }
-    //       console.log("nope")
-    //       return;
-    //     })
-    //   })
-    // ).subscribe();
-
-    return this.getFaceSnaps().pipe(
-      map(
-        faceSnaps => {
-          const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
-          const FSRand = faceSnaps[rand];
-          console.log(faceSnaps);
-          console.log(rand);
-          console.log(FSRand);
-          faceSnaps = [FSRand];
-        }
-      )
-    ).subscribe();
-  }
+  // getRandomFaceSnap(): Observable<FaceSnap> {
+  //   return this.getFaceSnaps().pipe(
+  //     map(
+  //       (faceSnaps, index) => {
+  //         const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
+  //         const FSRand = faceSnaps[rand];
+  //         console.log(faceSnaps);
+  //         console.log(rand);
+  //         console.log(FSRand);
+  //         console.log(index);
+  //         faceSnaps = [FSRand];
+  //       }
+  //     )
+  //   );
+  // }
 
   getRandomFaceSnapNumber(maxLength: number): number {
     return getRandomIntInclusive(0, maxLength);
   }
-
-  // getRandomFaceSnap(): FaceSnap {
-  //   return this.faceSnaps[this.getRandomFaceSnapNumber()]
-  // }
 
   addFaceSnap(formValue: {
     title: string,
