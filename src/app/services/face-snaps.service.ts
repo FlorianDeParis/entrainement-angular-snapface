@@ -3,7 +3,7 @@ import { FaceSnap } from './../models/face-snap';
 import { Component, Injectable } from "@angular/core";
 import { getRandomIntInclusive } from '../utils/random';
 import { HttpClient } from '@angular/common/http';
-import { filter, map, Observable, switchMap, tap } from 'rxjs';
+import { filter, from, map, Observable, of, switchMap, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,7 @@ export class FaceSnapsService{
         console.log(faceSnaps);
         console.log(rand);
         console.log(FSRand);
-        return [FSRand];
+        return of(FSRand);
       })
     );
   }
