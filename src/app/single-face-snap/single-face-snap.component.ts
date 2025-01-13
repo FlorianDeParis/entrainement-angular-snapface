@@ -53,14 +53,16 @@ export class SingleFaceSnapComponent implements OnInit {
     }
   }
 
-  unSnap(faceSnapId: string): void {
-    this.faceSnapsService.snapFaceSnapById(faceSnapId, 'unsnap');
-    this.setSnapButtonState('unsnap');
+  snap(faceSnapId: string): void {
+    this.faceSnap$ = this.faceSnapsService.snapFaceSnapById(faceSnapId, 'snap').pipe(
+      tap(() => {this.setSnapButtonState('snap')})
+    );
   }
 
-  snap(faceSnapId: string): void {
-    this.faceSnapsService.snapFaceSnapById(faceSnapId, 'snap');
-    this.setSnapButtonState('snap');
+  unSnap(faceSnapId: string): void {
+    this.faceSnap$ = this.faceSnapsService.snapFaceSnapById(faceSnapId, 'unsnap').pipe(
+      tap(() => {this.setSnapButtonState('unsnap')})
+    );
   }
 
   private setSnapButtonState(state: ('snap' | 'unsnap') ): void {
