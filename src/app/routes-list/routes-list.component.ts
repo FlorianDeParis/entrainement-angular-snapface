@@ -29,6 +29,7 @@ export class RoutesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const routes: Observable<customRoute> = from(this.myRoutes);
     this.myRoutes = [
       { id:"start", name:"Accueil", path:"" },
       { id:"facesnaplist", name:"Liste des FaceSnaps", path:"/facesnaps" },
@@ -43,21 +44,33 @@ export class RoutesListComponent implements OnInit {
     this.randomSnap$.pipe(
       tap(data => {
         console.log(data);
-        this.returnedFaceSnap = data;
       })
-    ).subscribe()
+    ).subscribe(data => {
+      this.returnedFaceSnap = data;
+      routes.pipe(
+        takeUntil(this.randomSnap$),
+        tap(route => console.log(route)),
+        map(
+          route => ({
+            ...route,
+            path : route.path.replace("__randomFaceSnapId__",data.id)
+          })
+        ),
+        tap(route => console.log('custom route: '+ route))
+      ).subscribe();
+    })
 
-    const routes: Observable<customRoute> = from(this.myRoutes);
-    routes.pipe(
-      takeUntil(this.randomSnap$),
-      tap(route => console.log(route)),
-      map(
-        route => ({
-          ...route,
-          path : route.path.replace("__randomFaceSnapId__",this.returnedFaceSnap.id)
-        })
-      ),
-      tap(route => console.log('custom route: '+ route))
-    ).subscribe();
+
+    // routes.pipe(
+    //   takeUntil(this.randomSnap$),
+    //   tap(route => console.log(route)),
+    //   map(
+    //     route => ({
+    //       ...route,
+    //       path : route.path.replace("__randomFaceSnapId__",this.returnedFaceSnap.id)
+    //     })
+    //   ),
+    //   tap(route => console.log('custom route: '+ route))
+    // ).subscribe();
   }
 }
