@@ -35,14 +35,16 @@ export class FaceSnapsService{
 
   getRandomFaceSnap$(): Observable<FaceSnap> {
     return this.getFaceSnaps().pipe(
-      switchMap(faceSnaps => {
-        const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
-        const FSRand = faceSnaps[rand];
-        console.log(faceSnaps);
-        console.log(rand);
-        console.log(FSRand);
-        return of(FSRand);
-      })
+      map(
+        faceSnaps => {
+          const rand = getRandomIntInclusive(0, faceSnaps.length - 1);
+          const FSRand = faceSnaps[rand];
+          console.log(faceSnaps);
+          console.log(rand);
+          console.log(FSRand);
+          return FSRand;
+        }
+      )
     );
   }
 
