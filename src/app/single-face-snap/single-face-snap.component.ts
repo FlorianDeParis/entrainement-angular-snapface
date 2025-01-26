@@ -7,6 +7,7 @@ import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { SnapType } from '../models/snap-type.type';
 
 @Component({
   selector: 'app-single-face-snap',
@@ -54,18 +55,22 @@ export class SingleFaceSnapComponent implements OnInit {
   }
 
   snap(faceSnapId: string): void {
-    this.faceSnap$ = this.faceSnapsService.snapFaceSnapById(faceSnapId, 'snap').pipe(
-      tap(() => {this.setSnapButtonState('snap')})
+    this.faceSnap$ = this.faceSnapsService.snapFaceSnapById(faceSnapId,'snap').pipe(
+      tap(() => {
+        this.setSnapButtonState('snap');
+      })
     );
   }
 
   unSnap(faceSnapId: string): void {
     this.faceSnap$ = this.faceSnapsService.snapFaceSnapById(faceSnapId, 'unsnap').pipe(
-      tap(() => {this.setSnapButtonState('unsnap')})
+      tap(() => {
+        this.setSnapButtonState('unsnap');
+      })
     );
   }
 
-  private setSnapButtonState(state: ('snap' | 'unsnap') ): void {
+  private setSnapButtonState(state: SnapType ): void {
     if(state === 'snap'){
       this.userHasSnapped = true;
       this.snapButtonText = "unsnap !";
