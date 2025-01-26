@@ -4,6 +4,7 @@ import { Component, Injectable } from "@angular/core";
 import { getRandomIntInclusive } from '../utils/random';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, switchMap } from 'rxjs';
+import { formAddFaceSnap } from '../models/form.type';
 
 @Injectable({
   providedIn: 'root'
@@ -41,23 +42,36 @@ export class FaceSnapsService{
     return this.faceSnaps[this.getRandomFaceSnapNumber()]
   }
 
-  addFaceSnap(formValue: {
-    title: string,
-    description: string,
-    imageUrl: string,
-    location?: string
-  }) {
-    const { title, description, imageUrl, location } = formValue;
-    const faceSnap = new FaceSnap(
-      title,
-      description,
-      imageUrl,
-      new Date(),
-      0
+  // addFaceSnap(formValue: {
+  //   title: string,
+  //   description: string,
+  //   imageUrl: string,
+  //   location?: string
+  // }) {
+  //   const { title, description, imageUrl, location } = formValue;
+  //   const faceSnap = new FaceSnap(
+  //     title,
+  //     description,
+  //     imageUrl,
+  //     new Date(),
+  //     0
+  //   );
+  //   if(location){
+  //     faceSnap.withLocation(location);
+  //   }
+  //   this.faceSnaps.push(faceSnap);
+  // }
+
+  addFaceSnap(formValue: formAddFaceSnap): Observable<FaceSnap>{
+    return this.getFaceSnaps().pipe(
+      map(faceSnaps => faceSnaps[faceSnaps.length - 1]),
+      map(previousFaceSnap => ({
+        id: crypto.randomUUID().substring(0,8),
+        ...formValue,
+        createdAt: new Date(),
+        snaps: 0,
+      })),
+      switchMap(newFaceSnap => this.http.post<FaceSnap>('http://localhost:3000/facesnaps', newFaceSnap))
     );
-    if(location){
-      faceSnap.withLocation(location);
-    }
-    this.faceSnaps.push(faceSnap);
   }
 }
