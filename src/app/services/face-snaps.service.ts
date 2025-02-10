@@ -3,7 +3,7 @@ import { FaceSnap } from './../models/face-snap';
 import { Component, Injectable } from "@angular/core";
 import { getRandomIntInclusive } from '../utils/random';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, switchMap } from 'rxjs';
+import { map, Observable, switchMap, tap } from 'rxjs';
 import { formAddFaceSnap } from '../models/form.type';
 
 @Injectable({
@@ -64,13 +64,16 @@ export class FaceSnapsService{
 
   addFaceSnap(formValue: formAddFaceSnap): Observable<FaceSnap>{
     return this.getFaceSnaps().pipe(
+      tap(faceSnaps => console.log(faceSnaps)),
       map(faceSnaps => faceSnaps[faceSnaps.length - 1]),
+      tap(previousFaceSnap => console.log(previousFaceSnap)),
       map(previousFaceSnap => ({
         id: crypto.randomUUID().substring(0,8),
         ...formValue,
         createdAt: new Date(),
         snaps: 0,
       })),
+      tap(newFaceSnap => console.log(newFaceSnap)),
       switchMap(newFaceSnap => this.http.post<FaceSnap>('http://localhost:3000/facesnaps', newFaceSnap))
     );
   }
