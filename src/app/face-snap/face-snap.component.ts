@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FaceSnap } from './../models/face-snap';
+import { FaceSnap } from '../core/models/face-snap';
 import { MatButtonModule } from "@angular/material/button";
 import { MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { Router } from '@angular/router';

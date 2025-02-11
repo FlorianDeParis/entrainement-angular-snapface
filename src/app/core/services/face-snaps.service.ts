@@ -1,7 +1,7 @@
-import { SnapType } from './../models/snap-type.type';
-import { FaceSnap } from './../models/face-snap';
+import { SnapType } from '../models/snap-type.type';
+import { FaceSnap } from '../models/face-snap';
 import { Component, Injectable } from "@angular/core";
-import { getRandomIntInclusive } from '../utils/random';
+import { getRandomIntInclusive } from '../../utils/random';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, switchMap, tap } from 'rxjs';
 import { formAddFaceSnap } from '../models/form.type';

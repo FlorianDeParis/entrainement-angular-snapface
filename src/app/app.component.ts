@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './core/components/header/header.component';
 import { RouterOutlet } from '@angular/router';
 import { delay, filter, interval, map, mergeMap, Observable, of, take, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';

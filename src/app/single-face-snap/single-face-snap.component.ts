@@ -1,5 +1,5 @@
-import { FaceSnap } from './../models/face-snap';
-import { FaceSnapsService } from '../services/face-snaps.service';
+import { FaceSnap } from '../core/models/face-snap';
+import { FaceSnapsService } from '../core/services/face-snaps.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, DatePipe, NgClass, NgStyle } from '@angular/common';
 import { MatButtonModule } from "@angular/material/button";
@@ -7,7 +7,7 @@ import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { SnapType } from '../models/snap-type.type';
+import { SnapType } from '../core/models/snap-type.type';
 
 @Component({
   selector: 'app-single-face-snap',

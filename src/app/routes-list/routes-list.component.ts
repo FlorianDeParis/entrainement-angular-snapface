@@ -1,6 +1,6 @@
-import { FaceSnapsService } from './../services/face-snaps.service';
+import { FaceSnapsService } from '../core/services/face-snaps.service';
 import { RouterLink } from '@angular/router';
-import { customRoute } from './../models/routes-list.type';
+import { customRoute } from '../core/models/routes-list.type';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
